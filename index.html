@@ -3,13 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zheng Jinpeng | Personal introduction</title>
+  <meta name="description" content="Meet Zheng Jinpeng, a supply chain management master's student at Corvinus University of Budapest.">
+  <title>Zheng Jinpeng | Personal Profile</title>
   <style>
     :root {
-      font-family: system-ui, sans-serif;
+      color-scheme: light;
+      --paper: #f5f3eb;
+      --card: #fffdf7;
+      --ink: #172c25;
+      --muted: #4e6056;
+      --accent: #205b49;
+      --line: #d5dbd0;
+      --gold: #a57e45;
+      font-family: system-ui, -apple-system, sans-serif;
       line-height: 1.6;
-      color: #1b302a;
-      background: #edf3ef;
+      color: var(--ink);
+      background: var(--paper);
     }
 
     * {
@@ -18,100 +27,284 @@
 
     body {
       margin: 0;
-      padding: clamp(1rem, 7vw, 5rem) 1rem;
     }
 
-    main {
-      max-width: 44rem;
-      margin: 0 auto;
-      padding: clamp(1.5rem, 5vw, 3rem);
-      background: #fffdf8;
-      border: 1px solid #cad8d0;
-      border-top: 4px solid #2e6659;
-      border-radius: 1rem;
+    .container {
+      width: min(100% - 3rem, 70rem);
+      margin-inline: auto;
     }
 
-    header {
+    .topbar,
+    nav {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 1.25rem;
     }
 
-    header > div {
-      flex: 1 1 17rem;
+    .topbar {
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 1.2rem;
+      border-bottom: 1px solid var(--line);
     }
 
-    .avatar {
-      flex-shrink: 0;
+    a {
+      color: inherit;
+      text-underline-offset: 0.25em;
     }
 
-    .university {
-      color: #2e6659;
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .wordmark {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      text-decoration: none;
+    }
+
+    nav {
+      gap: clamp(1rem, 3vw, 2rem);
       font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+      padding-block: clamp(2.6rem, 6vw, 5.3rem);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
       font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      flex: 0 0 1.5rem;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
     }
 
     h1 {
-      margin: 0.25rem 0 0.5rem;
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.12;
-      letter-spacing: -0.04em;
+      margin: 0.65rem 0 1rem;
+      font-size: clamp(3.5rem, 7.7vw, 7.1rem);
+      line-height: 0.91;
+      letter-spacing: -0.063em;
     }
 
-    .program {
-      color: #42574f;
+    h1 span {
+      display: block;
     }
 
-    section {
-      margin-top: 1.75rem;
+    .intro {
+      max-width: 31rem;
+      margin: 1.25rem 0 1.5rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.14rem);
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 2rem;
+      color: var(--card);
+      background: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .about-link:hover {
+      background: var(--accent);
+    }
+
+    .education {
+      padding: clamp(1.5rem, 3.75vw, 2.8rem);
+      border: 1px solid #2f5a4b;
+      border-radius: 1.2rem;
+      color: var(--card);
+      background: linear-gradient(145deg, #244b3e, #172c25);
+      box-shadow: 0 1rem 3rem #1c3a2416;
+    }
+
+    .education .education-label {
+      margin: 0;
+      color: #d6b981;
+      font-family: inherit;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .programme {
+      margin: 0.7rem 0 1.25rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 2.9vw, 2.4rem);
+      line-height: 1.16;
+      letter-spacing: -0.025em;
+    }
+
+    .study-details {
+      margin: 0;
+    }
+
+    .study-details div {
+      padding: 0.65rem 0 0.25rem;
+      border-top: 1px solid #78938866;
+    }
+
+    .study-details div + div {
+      margin-top: 0.45rem;
+    }
+
+    .study-details dt {
+      color: #c9d8cd;
+      font-size: 0.78rem;
+    }
+
+    .study-details dd {
+      margin: 0.1rem 0 0;
+      font-weight: 600;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      padding-bottom: 2.5rem;
+    }
+
+    .details section {
       padding-top: 1.25rem;
-      border-top: 1px solid #d9e3dc;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 1rem;
     }
 
     h2 {
       margin: 0 0 0.5rem;
-      font-size: 1.25rem;
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
     }
 
-    p, ul {
+    .details p {
+      max-width: 34rem;
       margin: 0;
+      color: var(--muted);
     }
 
-    ul {
-      padding-left: 1.25rem;
+    .hobbies ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hobbies li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.38rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hobby-number {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 44rem) {
+      .container {
+        width: calc(100% - 2rem);
+      }
+
+      .hero,
+      .details {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
-  <main>
-    <header>
-      <svg class="avatar" width="96" height="96" viewBox="0 0 96 96"
-        role="img" aria-label="Avatar with the initials ZJ">
-        <circle cx="48" cy="48" r="48" fill="#23574b" />
-        <text x="48" y="49" fill="#ffffff" font-size="32" font-weight="700"
-          text-anchor="middle" dominant-baseline="middle">ZJ</text>
-      </svg>
+<body id="top">
+  <header class="topbar container">
+    <a class="wordmark" href="#top" aria-label="Janó, back to top">Janó</a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#hobbies">Hobbies</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="name">
       <div>
-        <p class="university">Corvinus University of Budapest</p>
-        <h1>Zheng Jinpeng</h1>
-        <p class="program">MSc in Advanced Supply Chain Management · Year 1</p>
+        <p class="eyebrow">Personal profile</p>
+        <h1 id="name">Zheng <span>Jinpeng</span></h1>
+        <p class="intro">Hi, I’m Janó. I study supply chain management and I’m interested in how companies choose what to make and what to buy.</p>
+        <a class="about-link" href="#about">About me <span aria-hidden="true">↓</span></a>
       </div>
-    </header>
-
-    <section>
-      <h2>About me</h2>
-      <p>Hi, I’m Janó. I’m interested in procurement, especially how manufacturers decide what to make in-house and what to buy from suppliers.</p>
+      <section class="education" aria-labelledby="education-title">
+        <h2 class="education-label" id="education-title">Education</h2>
+        <p class="programme">MSc in Advanced Supply Chain Management</p>
+        <dl class="study-details">
+          <div>
+            <dt>University</dt>
+            <dd>Corvinus University of Budapest</dd>
+          </div>
+          <div>
+            <dt>Year of study</dt>
+            <dd>Year 1</dd>
+          </div>
+        </dl>
+      </section>
     </section>
 
-    <section>
-      <h2>Hobbies</h2>
-      <ul>
-        <li>Swimming</li>
-        <li>Table tennis</li>
-        <li>Working out</li>
-      </ul>
-    </section>
+    <div class="details">
+      <section id="about">
+        <h2>About me</h2>
+        <p>I’m curious how manufacturers weigh cost, quality and control when deciding whether to make a part in-house or buy it from a supplier.</p>
+      </section>
+      <section class="hobbies" id="hobbies">
+        <h2>Hobbies</h2>
+        <ul>
+          <li><span class="hobby-number" aria-hidden="true">01</span> Swimming</li>
+          <li><span class="hobby-number" aria-hidden="true">02</span> Table tennis</li>
+          <li><span class="hobby-number" aria-hidden="true">03</span> Working out</li>
+        </ul>
+      </section>
+    </div>
   </main>
 </body>
 </html>
